@@ -1,0 +1,1 @@
+Use the OrbitDB docker folder to set up a docker container and run the basic insertion script. There are additional scripts, like update and node synchronization included as well. There is additional setup options and examples in orbit-db examples on the OrbitDB website.
