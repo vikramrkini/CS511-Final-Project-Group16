@@ -101,9 +101,9 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
 - Visit [cr-sqlite installation documentation](https://vlcn.io/docs) for detailed instructions.
 - Pull the latest Docker image from [cr-sqlite Docker Hub](https://vlcn.io/docs/cr-sqlite/installation): 
 -  Docker Installation
-```  
+  ```  
   docker pull cr-sqlite/cr-sqlite
-```
+  ```
 - For a single node:
   ```
   docker run -p <host_port>:<container_port> cr-sqlite/cr-sqlite
