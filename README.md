@@ -81,9 +81,19 @@ ecs-cli compose --file docker-compose.yml service up --create-log-groups --clust
 Verify that the BigchainDB service is running correctly:
 
 ```
-
 ecs-cli ps --cluster-config myClusterConfig --ecs-profile myEcsProfile
 ```
+
+
+### Step 6: Deploy CR-sqlite to ECS
+
+Verify that the CR-sqlite service is running correctly:
+
+```
+ecs-cli compose --project-name CRSqliteTask service up
+systemctl status cr-sqlite
+```
+
 
 ## Running Benchmark Scripts
 
@@ -93,3 +103,4 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
 
 - [BigchainDB Documentation](https://docs.bigchaindb.com/)
 - [AWS ECS Documentation](https://docs.aws.amazon.com/ecs/)
+- [CR-sqlite Documentation] (https://vlcn.io/docs/)
