@@ -25,6 +25,8 @@ date_directories_filtered = [f"{base_directory_path}/date={date.strftime('%Y-%m-
 db_file = 'block-3.db' 
 
 conn = sqlite3.connect(db_file)
+conn.load_extension("crsqlite")
+
 c = conn.cursor()
 
 c.execute('''

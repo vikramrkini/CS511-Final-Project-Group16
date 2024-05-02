@@ -12,6 +12,8 @@ def print_resource_usage(start_time, start_cpu, start_memory):
     print(f"Memory Usage: From {start_memory}% to {end_memory}%")
 
 conn = sqlite3.connect(db_file)
+conn.load_extension("crsqlite")
+
 c = conn.cursor()
 
 query = '''

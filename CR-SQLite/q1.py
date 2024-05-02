@@ -28,6 +28,8 @@ def query_and_log_resources(token_address):
     query_start_time = time.time()
 
     connection = dbapi2.connect(host='localhost', port=4001)
+    connection.load_extension("crsqlite")
+
 
     try:
         with connection.cursor() as cursor:
