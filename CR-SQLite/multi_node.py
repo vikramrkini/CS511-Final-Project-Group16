@@ -12,6 +12,7 @@ def execute_query_on_node(db_file, query, params):
     Executes a given query on a database and returns the results.
     """
     conn = sqlite3.connect(db_file)
+    conn.load_extension("crsqlite")
     cur = conn.cursor()
     cur.execute(query, params)
     results = cur.fetchall()
