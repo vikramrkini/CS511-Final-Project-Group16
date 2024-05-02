@@ -1,6 +1,6 @@
 # CS511-Final-Project-Group16
 
-BigchainDB Installation and Deployment Guide
+## BigchainDB Installation and Deployment Guide
 
 This README provides instructions on how to install BigchainDB on your local machine and deploy it on Amazon Elastic Container Service (ECS).
 
@@ -20,7 +20,7 @@ Before you begin, make sure you have the following installed:
 If you have Git installed, you can clone the BigchainDB repository. Otherwise, you can download the latest release from GitHub.
 
 ```
-bash
+
 git clone https://github.com/bigchaindb/bigchaindb.git
 cd bigchaindb
 
@@ -31,7 +31,7 @@ cd bigchaindb
 Edit the configuration file to suit your local environment. The configuration file can be found at:
 
 ```
-bash
+
 nano bigchaindb/.bigchaindb
 ```
 
@@ -40,7 +40,7 @@ nano bigchaindb/.bigchaindb
 To start BigchainDB on your local machine using Docker Compose, run:
 
 ```
-bash
+
 docker-compose up
 ```
 
@@ -52,7 +52,7 @@ This command will start all required services in containers as defined in the do
 Configure your AWS CLI with the appropriate credentials and default region:
 
 ```
-bash
+
 aws configure
 ```
 
@@ -60,7 +60,7 @@ aws configure
 
 Create a new ECS cluster where your BigchainDB instance will be deployed.
 ```
-bash
+
 ecs-cli up --cluster-config myClusterConfig --ecs-profile myEcsProfile
 ```
 ### Step 3: Create Task Definition
@@ -72,7 +72,7 @@ Create a task definition for BigchainDB. You can use the AWS Management Console 
 Use the ECS CLI to deploy BigchainDB to your cluster:
 
 ```
-bash
+
 ecs-cli compose --file docker-compose.yml service up --create-log-groups --cluster-config myClusterConfig --ecs-profile myEcsProfile
 ```
 
@@ -81,7 +81,7 @@ ecs-cli compose --file docker-compose.yml service up --create-log-groups --clust
 Verify that the BigchainDB service is running correctly:
 
 ```
-bash
+
 ecs-cli ps --cluster-config myClusterConfig --ecs-profile myEcsProfile
 ```
 
