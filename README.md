@@ -96,7 +96,8 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
 - [CR-sqlite Documentation](https://vlcn.io/docs/)
 
 
-```markdown
+```
+markdown
 ## Setting up cr-sqlite
 
 ### Docker Installation
@@ -116,7 +117,8 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
   ```
 ```
 
-```markdown
+```
+markdown
 ## Setting up rqlite
 
 ### Docker Installation
