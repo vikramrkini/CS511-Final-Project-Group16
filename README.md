@@ -178,5 +178,3 @@ ORDER BY
     transaction_count DESC, 
     total_transaction_value DESC 
 LIMIT 1;
-```
-```
