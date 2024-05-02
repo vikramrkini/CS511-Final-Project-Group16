@@ -94,3 +94,89 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
 - [BigchainDB Documentation](https://docs.bigchaindb.com/)
 - [AWS ECS Documentation](https://docs.aws.amazon.com/ecs/)
 - [CR-sqlite Documentation] (https://vlcn.io/docs/)
+
+
+```markdown
+## Setting up rqlite
+
+### Docker Installation
+
+- Visit [rqlite installation documentation](https://rqlite.io/docs/install-rqlite/) for detailed instructions.
+- Pull the latest Docker image from [rqlite Docker Hub](https://hub.docker.com/r/rqlite/rqlite/): 
+  ```
+  docker pull rqlite/rqlite
+  ```
+- For a single node:
+  ```
+  docker run -p <host_port>:<container_port> rqlite/rqlite
+  ```
+- For a cluster:
+  ```
+  docker run rqlite/rqlite -join=$RAFT_ADDRESS:<Child_PORT>
+  ```
+
+### Homebrew Installation (for MacOS)
+
+- Alternatively, you can install via Homebrew. Check the documentation for specific instructions.
+
+Once installed, verify the installation by running `rqlite` in the command line or Docker command line. Adjust ports in your scripts accordingly.
+
+## Sample Queries
+
+### Sorting Transactions by Value
+
+```sql
+SELECT 
+    SUM(value) AS total_value,
+    AVG(value) AS average_value,
+    date,
+    block_timestamp 
+FROM 
+    contracts 
+WHERE 
+    token_address ='0x94f27b5141e17dd8816242d752c7be8e6764bd22' 
+GROUP BY 
+    from_address, 
+    to_address 
+ORDER BY 
+    total_value DESC;
+```
+
+### Most Active Token Address
+
+```sql
+SELECT 
+    token_address, 
+    COUNT(*) AS transaction_count 
+FROM 
+    contracts 
+GROUP BY 
+    token_address 
+ORDER BY 
+    transaction_count DESC 
+LIMIT 1;
+```
+
+### Detailed Transaction Analysis
+
+```sql
+SELECT 
+    token_address, 
+    COUNT(*) AS transaction_count, 
+    AVG(value) AS average_transaction_value, 
+    SUM(value) AS total_transaction_value, 
+    MAX(value) AS highest_transaction_value, 
+    MIN(block_timestamp) AS earliest_transaction, 
+    MAX(block_timestamp) AS latest_transaction 
+FROM 
+    contracts 
+WHERE 
+    date BETWEEN '2016-01-01' AND '2016-03-05' 
+GROUP BY 
+    token_address 
+ORDER BY 
+    transaction_count DESC, 
+    total_transaction_value DESC 
+LIMIT 1;
+```
+```
