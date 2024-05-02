@@ -114,6 +114,7 @@ To run simply use the python notebook for loading and testing BigchainDB. Note f
   ```
   docker run cr-sqlite/cr-sqlite -join=$RAFT_ADDRESS:<Child_PORT>
   ```
+```
 
 ```markdown
 ## Setting up rqlite
