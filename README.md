@@ -85,16 +85,6 @@ ecs-cli ps --cluster-config myClusterConfig --ecs-profile myEcsProfile
 ```
 
 
-### Step 6: Deploy CR-sqlite to ECS
-
-Verify that the CR-sqlite service is running correctly:
-
-```
-ecs-cli compose --project-name CRSqliteTask service up
-systemctl status cr-sqlite
-```
-
-
 ## Running Benchmark Scripts
 
 To run simply use the python notebook for loading and testing BigchainDB. Note for ECS deployment we recommend using lambda functions for triggering various codes.
